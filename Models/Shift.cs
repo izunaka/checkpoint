@@ -19,5 +19,7 @@ namespace WebApi.Models
 
         [Required]
         public Employee Employee { get; set; }
+
+        public int EmployeeID { get; set; }
     }
 }

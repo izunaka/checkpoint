@@ -35,7 +35,10 @@ namespace WebApi.Controllers
                     throw new Exception("Сотрудник не найден.");
                 }
 
-                Shift shift = employee.Shifts.OrderByDescending(s => s.ShiftStart).FirstOrDefault();
+                Shift shift = employee.Shifts
+                    .Where(s => s.EmployeeID == model.ID)
+                    .OrderByDescending(s => s.ShiftStart)
+                    .FirstOrDefault();
                 bool shiftValidate = shift == null || shift.ShiftEnd != null;
                 if (!shiftValidate)
                 {
@@ -76,7 +79,10 @@ namespace WebApi.Controllers
                     throw new Exception("Сотрудник не найден");
                 }
 
-                Shift shift = employee.Shifts.OrderByDescending(s => s.ShiftStart).FirstOrDefault();
+                Shift shift = employee.Shifts
+                    .Where(s => s.EmployeeID == model.ID)
+                    .OrderByDescending(s => s.ShiftStart)
+                    .FirstOrDefault();
                 bool shiftValidate = shift != null && shift.ShiftEnd == null;
                 if (!shiftValidate)
                 {
