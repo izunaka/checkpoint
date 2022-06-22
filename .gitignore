@@ -1,0 +1,7 @@
+.vs
+/pub
+/TestResults
+**/.vs
+**/bin
+**/obj
+**/packages
